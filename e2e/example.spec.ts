@@ -1,5 +1,11 @@
 import { test, expect } from '@playwright/test';
+import dotenv from "dotenv";
 
+dotenv.config({
+  path: `.env.${process.env.TEST_ENV}`,
+});
+console.log(process.env.NEETO_CI_JOB_ID);
+console.log(process.env.TAG);
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
